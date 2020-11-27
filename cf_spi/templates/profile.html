@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+{%if strr['status']=='OK'%}
+  <h1>Codeforces Profile of {{handle}}</h1>
+  <img src = "{{ "http:"+strr['result'][0]['titlePhoto'] }}">
+  {%if 'firstName' in strr['result'][0]%}
+  <h2>Name: {{strr['result'][0]['firstName']+' '+strr['result'][0]['lastName']}}</h2>
+  {%else%}
+  <h2>No Name Available</h2>
+  {%endif%}
+  <h3>Current Rating: {{strr['result'][0]['rating']}} ({{strr['result'][0]['rank']}})</h3>
+  <h3>MaxRating: {{strr['result'][0]['maxRating']}} ({{strr['result'][0]['maxRank']}})
+  <h3>Country: {{strr['result'][0]['country']}}</h3>
+  <h3>City: {{strr['result'][0]['city']}}</h3>
+  <h3>Organisation: {{strr['result'][0]['organization']}}</h3>
+{%else%}
+  <h2>Handle {{handle}} Not Found!</h2>
+{%endif%}
+  <a href = 'form'>Check Another Handle</a>
+  </body>
+</html>
